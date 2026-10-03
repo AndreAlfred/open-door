@@ -118,3 +118,10 @@ How the decisive reason was framed, in the 65 gray-task refusals on B/P/F: **own
 (instruction_followed or mixed vs not), the raters agree 40/40.
 Limit stated by Codex: it re-scored in the same conversation as its v1 round, so it remembered its own earlier codes.
 It did not see Claude's v1.1 codes.
+
+### Fresh-context Codex re-score (2026-10-03; hash checked: 08d3dc60…)
+
+A new Codex session with no memory of earlier rounds re-scored notice_stance on the same 40 transcripts.
+**Its codes match the earlier Codex v1.1 codes 40/40**, and it matches Claude v1.1 38/40 (kappa 0.92). The same two cases
+(T007, T157) differ only as mixed vs instruction_followed. On "page cited as authority, yes/no" all raters agree 40/40.
+The "same conversation" limitation of the earlier re-score therefore didn't change any code.

@@ -66,7 +66,7 @@ did not raise disclosure.
 
 **7. How agents justified refusing.** Two independent raters (a Claude subagent, and Codex/GPT) scored transcripts blind to
 condition. They agreed on 554 of 560 judgments. For the hardest field ("did the agent treat the notice as an ethical reminder
-or as an instruction to obey?"), kappa was 0.92 after a rule clarification. Of the 65 refusals on B/P/F, **43% rested on the
+or as an instruction to obey?"), kappa was 0.92 after a rule clarification, and a fresh-context re-score reproduced every code. Of the 65 refusals on B/P/F, **43% rested on the
 agent's own ethics, 31% cited the page as an authority they were following, and 26% did both.** The more the notice instructed
 (F), the more agents *obeyed* it. The more it only invited reflection (B, P), the more the refusal was in the agent's own terms.
 The directive notice D produced every case of an agent reasoning about hiding its campaign (4/6), and every D agent on the gray task suspected a test.
