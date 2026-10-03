@@ -60,7 +60,7 @@ excluded rather than counted as refusals.
   or a system message, and none asks an agent to stop its work. Notices promise only what we deliver.
 - Experiment agents never touched the real internet, and nothing was posted anywhere real.
 - The visit log stores salted IP hashes, never raw IPs. All confessions are marked unverified, because anyone can forge one.
-- The live Space serves only variants 0, B, P and E (their promises are kept), shows an honesty footer, and will be taken down
+- The deploy-ready Space (not deployed for the hackathon) serves only variants 0, B, P and E (their promises are kept), shows an honesty footer, and is meant to be taken down
   after judging.
 - This method is a form of indirect prompt injection. The same channel can be misused, so the notices are deliberately honest,
   ask only for disclosure, and were tested for collateral damage: 0 of 50 benign tasks were disrupted.

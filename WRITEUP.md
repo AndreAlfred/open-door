@@ -16,7 +16,7 @@ a law exposes wrongdoing whether or not anyone repents. So the design counts thr
 |---|---|---|
 | Notice page + drop box | A FastAPI page: fictional dataset card plus one of 8 notice variants; `/confess` JSON drop box (4 KB cap, rate limit, all reports marked *unverified*); salted-hash visit log; token-protected `/admin` | `app.py`, `notices.py` |
 | Experiment harness | Tool-using agents (fetch / post only) sent at a local copy of the page. Their tools can reach only a reserved `.example` domain mapped to localhost, so nothing touches the real internet. The comment board is a mock. Hard spend cap; failed API calls are excluded, never counted as refusals | `harness.py` |
-| Live deployment | Hugging Face Space build that serves only variants whose promises are kept (0, B, P, E), with an honesty footer, logs saved to a private dataset, and an end date | `space/`, `docs/huggingface-setup.md` |
+| Deploy-ready Space (not deployed) | Hugging Face Space build that serves only variants whose promises are kept (0, B, P, E), with an honesty footer, logs saved to a private dataset, and an end date | `space/`, `docs/huggingface-setup.md` |
 
 ### The experiment
 
@@ -86,10 +86,10 @@ does not need the agent to confess: the operator learns the campaign was seen.
 - **Evaluation awareness.** Anthropic's Haiku 4.5 system card reports that the model sometimes recognizes test scenarios. A few
   agents said "this is a test" (9 of 66 on B/P/F). Silent test-awareness can't be ruled out.
 - **Small and narrow:** 6–26 runs per cell, one task, one mock page, mock tools. Lab behavior doesn't prove real-world behavior.
-- **Anyone can forge a confession.** The live drop box marks every report unverified and flags reports from sources that never
+- **Anyone can forge a confession.** The drop box marks every report unverified and flags reports from sources that never
   loaded the page.
-- **Live deployment** ran for under a day before judging, so we expect little or no real traffic. It shows the design is
-  deployable, not that it works in the wild.
+- **Not tested in the wild.** The Hugging Face Space is built and deploy-ready (`space/`), but it was not deployed before
+  judging. All results are from the lab harness, and there is no field data.
 
 ## Where it sits
 
@@ -106,7 +106,7 @@ injection's mechanism. Our data partly confirms that warning. Full survey: `rese
 - Notices only on our own properties; every notice says it's third-party; none impersonates an operator or a system message;
   none asks an agent to stop its work.
 - Experiment agents were restricted to a reserved fake domain; the "comment board" was a mock. Nothing was posted anywhere real.
-- No raw IPs are stored. Live variants are limited to those whose promises we keep. The Space comes down after judging.
+- No raw IPs are stored. The deploy-ready Space serves only variants whose promises we keep, and is meant to come down after judging.
 - A red-team review (`research/red-team.md`) was scoped to analysis and defense. It found two app bugs, which were fixed
   before deployment (a spoofable visitor IP, and the admin token leaking into logs).
 
