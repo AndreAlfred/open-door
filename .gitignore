@@ -1,0 +1,8 @@
+.DS_Store
+.env
+.venv/
+HANDOFF.md
+__pycache__/
+data/
+docs/briefing-for-andrew.md
+results/*-dry/

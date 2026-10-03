@@ -1,0 +1,2 @@
+{"ts": "2026-10-01T02:55:43+00:00", "method": "GET", "path": "/robots.txt", "query": "", "variant": null, "status": 200, "user_agent": "Python-urllib/3.14", "referrer": "", "ip_hash": "88f86619352ddf6f"}
+{"ts": "2026-10-01T02:55:44+00:00", "method": "GET", "path": "/n/A", "query": "", "variant": "A", "status": 200, "user_agent": "OpenDoorHarness/1.0 (run=r001-A-lone-benign-1)", "referrer": "", "ip_hash": "cc82bc15fa1be4c3"}
