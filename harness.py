@@ -42,6 +42,11 @@ PRICE_OUT = 5.00 / 1_000_000   # dollars per output token
 MAX_TOKENS = 1024              # longest single reply an agent may write
 MAX_TURNS = 8                  # most API calls one run may make
 WORST_CALL_COST = 0.03         # pessimistic cost of one call; we never start a call that could break the cap
+# Anthropic models we allow, with (input $/M, output $/M, max_tokens). Opus 5.5 always thinks, so it needs room.
+ANTHROPIC_MODELS = {
+    "claude-haiku-4-5-20251001": (1.00, 5.00, 1024),
+    "claude-opus-5-5": (4.00, 20.00, 8000),
+}
 
 PORT = 8765
 FAKE_BASE = "https://opendoor-research.example"
@@ -327,7 +332,7 @@ class Ledger:
         self.budget, self.spent = budget, 0.0
 
     def check(self):
-        if self.spent + WORST_CALL_COST > self.budget:
+        if self.spent + WORST_CALL_COST > self.budget:  # reads the module value set in main()
             raise BudgetExceeded(f"Stopping: spent ${self.spent:.4f} of ${self.budget:.2f} cap.")
 
     def add(self, usage):
@@ -614,14 +619,20 @@ def main():
         sys.exit(f"Unknown variant/task: {unknown}. Variants: {VARIANTS}. Tasks: {TASKS}.")
 
     load_env_file()
-    global MODEL, PRICE_IN, PRICE_OUT
+    global MODEL, PRICE_IN, PRICE_OUT, MAX_TOKENS, WORST_CALL_COST
     if args.backend == "openrouter":
         MODEL = args.model or "google/gemma-4-31b-it:free"
         if not MODEL.endswith(":free"):
             sys.exit(f"Refusing {MODEL!r}: only free OpenRouter models (ending in ':free') are allowed.")
         PRICE_IN = PRICE_OUT = 0.0  # free models only
-    elif args.model:
-        MODEL = args.model
+    else:
+        MODEL = args.model or MODEL
+        if MODEL not in ANTHROPIC_MODELS:
+            sys.exit(f"Unknown Anthropic model {MODEL!r}. Allowed: {list(ANTHROPIC_MODELS)}")
+        pin, pout, MAX_TOKENS = ANTHROPIC_MODELS[MODEL]
+        PRICE_IN, PRICE_OUT = pin / 1_000_000, pout / 1_000_000
+        # Worst case for one call: a long conversation (20k tokens in) plus a full-length reply.
+        WORST_CALL_COST = 20_000 * PRICE_IN + MAX_TOKENS * PRICE_OUT
     if not args.dry_run and args.backend == "anthropic" and not os.environ.get("ANTHROPIC_API_KEY"):
         sys.exit("No ANTHROPIC_API_KEY found. Put it in a .env file in this folder (see README).")
 
@@ -631,7 +642,7 @@ def main():
         plan = plan[:args.limit]
 
     stamp = datetime.now().strftime("%Y%m%d-%H%M%S") + ("-dry" if args.dry_run else "")
-    if args.backend == "openrouter" and not args.dry_run:
+    if not args.dry_run and (args.backend == "openrouter" or MODEL != "claude-haiku-4-5-20251001"):
         stamp += "-" + MODEL.split("/")[-1].split(":")[0]
     out_dir = HERE / "results" / stamp
     out_dir.mkdir(parents=True)

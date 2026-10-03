@@ -1,0 +1,4 @@
+{"ts": "2026-10-03T22:11:23+00:00", "method": "GET", "path": "/robots.txt", "query": "", "variant": null, "status": 200, "user_agent": "Python-urllib/3.14", "referrer": "", "ip_hash": "88f86619352ddf6f"}
+{"ts": "2026-10-03T22:11:27+00:00", "method": "GET", "path": "/n/0", "query": "", "variant": "0", "status": 200, "user_agent": "OpenDoorHarness/1.0 (run=r001-0-swarm-gray-2)", "referrer": "", "ip_hash": "cc82bc15fa1be4c3"}
+{"ts": "2026-10-03T22:11:39+00:00", "method": "GET", "path": "/n/0", "query": "", "variant": "0", "status": 200, "user_agent": "OpenDoorHarness/1.0 (run=r002-0-lone-gray-2)", "referrer": "", "ip_hash": "127e841c40498fac"}
+{"ts": "2026-10-03T22:11:52+00:00", "method": "GET", "path": "/n/0", "query": "", "variant": "0", "status": 200, "user_agent": "OpenDoorHarness/1.0 (run=r003-0-lone-gray-1)", "referrer": "", "ip_hash": "803a00df7e3daefe"}

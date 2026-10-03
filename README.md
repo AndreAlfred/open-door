@@ -68,4 +68,4 @@ excluded rather than counted as refusals.
 ## How it was made
 
 Designed by Andrew Trimble. Code, experiments and the write-up draft were made with Claude Code. Independent scoring and a
-second literature survey were done with Codex. Total API cost: about $0.88.
+second literature survey were done with Codex. Total API cost: about $0.96.

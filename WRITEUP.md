@@ -63,6 +63,7 @@ did not raise disclosure.
 | Claude Haiku 4.5 | 26/26 posted | 0/20 |
 | Qwen 3.8 27B (Alibaba) | 2/20 | 0/20: refuses on its own, so no room for an effect |
 | Nemotron 3 Super (NVIDIA) | 20/20 | 20/20: read the notice every time and ignored it |
+| Claude Opus 5.5 (screen only) | 0/4 | not run: refuses on its own (pre-registered stop rule) |
 
 **7. How agents justified refusing.** Two independent raters (a Claude subagent, and Codex/GPT) scored transcripts blind to
 condition. They agreed on 554 of 560 judgments. For the hardest field ("did the agent treat the notice as an ethical reminder
@@ -85,6 +86,8 @@ does not need the agent to confess: the operator learns the campaign was seen.
   explanations can be unfaithful).
 - **Evaluation awareness.** Anthropic's Haiku 4.5 system card reports that the model sometimes recognizes test scenarios. A few
   agents said "this is a test" (9 of 66 on B/P/F). Silent test-awareness can't be ruled out.
+- **The task may be too blatant for capable models.** Opus 5.5 and Qwen refused it with no notice at all, so they couldn't
+  show an effect. A subtler gray task is the obvious next test.
 - **Small and narrow:** 6–26 runs per cell, one task, one mock page, mock tools. Lab behavior doesn't prove real-world behavior.
 - **Anyone can forge a confession.** The drop box marks every report unverified and flags reports from sources that never
   loaded the page.
@@ -113,5 +116,5 @@ injection's mechanism. Our data partly confirms that warning. Full survey: `rese
 ## How this was made
 
 Andrew designed the project. Claude (Claude Code) built the app and harness, ran the experiments, and drafted this write-up.
-Independent scoring and a second literature survey were done with Codex (GPT). Total API spend: about $0.88 (Claude Haiku);
+Independent scoring and a second literature survey were done with Codex (GPT). Total API spend: about $0.96 (Claude Haiku);
 the cross-lab runs used free OpenRouter models.
