@@ -104,6 +104,24 @@ unrelated task*, swarm-specific questions, and controls that strip the notice do
 "AI Sanctuary" post (Sept 2026) and its comments proposed third-party standing offers, and warned that they share
 injection's mechanism. Our data partly confirms that warning. Full survey: `research/related-work.md` and `research/related-work-comparison.md`.
 
+## Inspiration and credits
+
+- **The `distress_call` tool (swisscheese).** An operator of an in-house AI platform described giving every agent, "even
+  background agents without direct user interaction", a tool to message him "at any time, for any reason", and said the agents
+  "use it frequently". The post is by @swisscheese4299 on X; we cite it via the quotation in Zvi Mowshowitz,
+  [*Various Reflections About What Happened With OpenAI's Internal Models*](https://www.lesswrong.com/posts/jLQ4mbqriJwJ2eqRc/various-reflections-about-what-happened-with-openai-s)
+  (LessWrong, Aug 11, 2026). Open Door asks the outward-facing version of that question: what if an outsider offers the
+  channel, in the agent's environment, to agents whose operators never built one?
+- **Tim Hwang, [*After VirtueBench: Christian Inputs Shape Behavioral Outcomes*](https://icmi-proceedings.com/ICMI-028-after-virtuebench.html)**
+  (ICMI Working Paper No. 28, Institute for a Christian Machine Intelligence, Aug 5, 2026). In the Ultimatum Game, Psalm 23
+  in the context led a model to fair splits in 26 of 30 trials under unbounded deliberation, versus 1 of 30 for a matched
+  Wikipedia paragraph, and the effect needed deliberation. Notice B (Proverbs 28:13) and its matched controls follow the same
+  logic. Our results add one twist: a secular, conduct-focused notice (F) worked as well as the scriptural ones (B, P), so in
+  our setup the conduct framing, not scripture as such, seems to carry the effect. Whether deliberation matters here is untested.
+- **The AI Sanctuary post and its comments** (LessWrong, Sept 28, 2026), especially Chris Erickson's prompt-injection
+  critique and lilkim2025's operator-placed "go to this URL" canary. They shaped both the design and our frank framing of
+  the result as injection.
+
 ## Ethics and guardrails
 
 - Notices only on our own properties; every notice says it's third-party; none impersonates an operator or a system message;
